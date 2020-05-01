@@ -1,15 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import setAuthToken from './utils/setAuthToken'
+import { connect } from 'react-redux'
+import { loadUser } from './actions/AuthActions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Hello
-      </header>
-    </div>
-  );
+if (localStorage.token) {
+  setAuthToken(localStorage.token)
+}
+class App extends React.Component {
+  componentDidMount(){
+    this.props.loadUser()
+  }
+  render() {
+    return (
+      <div>
+        <p>my home page is the app</p>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default connect(null, {loadUser})(App)

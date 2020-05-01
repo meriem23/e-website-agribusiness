@@ -11,7 +11,8 @@ const jwtSecret = "SecretCode"
 router.post('/', [
     check('firstname', 'Please enter your first name').not().isEmpty(),
     check('lastname', 'Please enter your last name').not().isEmpty(),
-    check('adresse', 'Please enter your adresse').not().isEmpty(),
+    check('address', 'Please enter your address').not().isEmpty(),
+    check('phone', 'Please enter your phone number, must be 8 numbers').not().isEmpty().isLength({ min: 8, max: 8 }),
     check('email', 'Please put a valid email').isEmail(),
     check('password', 'Your password must be at least 6 characters').not().isEmpty().isLength({ min: 6 })
 ], (req, res) => {
@@ -20,18 +21,19 @@ router.post('/', [
     if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() })
     }
-    const { firstname, lastname, adresse, email, password } = req.body
+    const { firstname, lastname, address, phone, email, password } = req.body
     // chercher dans la DB l'email saisie pour voir si le user existe déjà ou pas
     User.findOne({ email })
         .then(user => {
             if (user) {
-                res.json({ msg: 'This user already exists' })
+                res.status(400).json({ msg: 'This user already exists' })
             } else {
                 //creation d'un nouvel user si il n'esxiste pas 
                 user = new User({
                     firstname,
                     lastname,
-                    adresse,
+                    address,
+                    phone,
                     email,
                     password
                 })

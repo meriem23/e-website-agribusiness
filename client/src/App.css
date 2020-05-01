@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+/*Search Bar in Home page */
+.SearchBar{
+  text-align:center;
+  width: 100%;
+  border-bottom: 1px solid #009900;
+  outline: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.faColor {
+  color: #009900;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navbar */
+.Navbar{
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  width: auto;
+  margin-bottom: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NameWeb{
+  color:#009900;
+  font-size:x-large;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.NavItems{
+display: flex;
+}
+.Item{
+  margin : 5px 5px 0px 5px;
+  font-size:large;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#LinkItem{
+  text-decoration: none;
+  color:#009900;
+}
+#LinkItem:hover{
+cursor: pointer;
+  color:gray;
+}
+/* Register Inputs */
+.RegisterInputs{
+  text-align:center;
+}
+.Inputs{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 30%;
+  margin-left: 400px;
 }
-
-.App-link {
-  color: #61dafb;
+input , select {
+  padding: 5px 5px;
+  margin: 10px 0;
+  outline: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+select{
+  color: gray;
+}
+.RoleType{
+  font-size:small;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.BtnSign{
+  margin: 10px 0px;
+}
+/*Login Inputs */
+.LoginInputs{
+  text-align:center;
+  margin-top: 125px;
 }
