@@ -1,7 +1,7 @@
 // require express
 const express = require('express')
 // Connection to DB
-const ConnectDB = require('./config/Connection')
+const ConnectDB = require('./configuration/Connection')
 ConnectDB()
 // invoque express
 const app = express()

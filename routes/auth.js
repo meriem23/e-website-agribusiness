@@ -9,7 +9,7 @@ const auth = require('../middleware/auth')
 
 const jwtSecret = "SecretCode"
 
-// Get which User is logged in 
+// Get which User is logged in , Private route
 router.get('/',auth,(req,res)=>{
     User.findById(req.user.id)
     .then(user => res.json(user))

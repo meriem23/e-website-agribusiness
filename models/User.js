@@ -18,8 +18,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    adresse: {
+    address: {
         type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
         required: true
     },
     date: {
