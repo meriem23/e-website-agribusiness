@@ -7,28 +7,29 @@ const Navbar = props => {
     const userConnected = () => (
         <div>
             <ul style={{ listStyleType: 'none' }} className="Navbar">
+            <p className="NameWeb">LOGO HERE</p>
+                <div className="NavItems">
                 <li className="Item">
-                    <Link id="LinkItem" to="/">Home</Link>
-                </li>
-                <li className="Item">
-                    <Link id="LinkItem" to="/account">Your Account<i className="far fa-user-circle"></i></Link>
-                </li>
-                <li className="Item">
-                    <Link id="LinkItem" to="/blog">Blog</Link>
-                </li>
-                <li className="Item">
-                    Hello, {props.auth.user && props.auth.user.firstname}
-                </li>
-                <li className="Item">
-                    <a href="#!" onClick={props.logout}>Logout<i className="fas fa-sign-out-alt"></i> </a>
-                </li>
-                <li className="Item">
-                    <Link id="LinkItem" to="/cart">Cart< i className="fas fa-shopping-basket"></i></Link>
-                </li>
-                <li className="Item">
-                    <Link id="LinkItem" to="/contact">Contact us</Link>
-                </li>
+                        Hello, {props.auth.user && props.auth.user.firstname}
+                    </li>
+                    <li className="Item">
+                        <Link id="LinkItem" to="/">Home</Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="LinkItem" to="/blog">Blog</Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="LinkItem" to="/account">Your Account<i className="far fa-user-circle"></i></Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="LinkItem" to="/cart">Cart< i className="fas fa-shopping-basket"></i></Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="LinkItem" to='#!' onClick={props.logout}>Logout<i className="fas fa-sign-out-alt"></i></Link>
+                    </li>
+                </div>
             </ul>
+
         </div>
     )
     const guest = () => (
@@ -38,6 +39,9 @@ const Navbar = props => {
                 <li className="Item">
                     <Link id="LinkItem" to="/">Home</Link>
                 </li>
+                <li className="Item">
+                        <Link id="LinkItem" to="/blog">Blog</Link>
+                    </li>
                 <li className="Item">
                     <Link id="LinkItem" to="/login">Login<i className="fas fa-sign-in-alt"></i></Link>
                 </li>
