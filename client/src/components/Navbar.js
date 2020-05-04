@@ -7,20 +7,20 @@ const Navbar = props => {
     const userConnected = () => (
         <div>
             <ul style={{ listStyleType: 'none' }} className="Navbar">
-            <p className="NameWeb">LOGO HERE</p>
+                <p className="NameWeb">NAME HERE</p>
                 <div className="NavItems">
-                <li className="Item">
-                        Hello, {props.auth.user && props.auth.user.firstname}
-                    </li>
                     <li className="Item">
                         <Link id="LinkItem" to="/">Home</Link>
                     </li>
-                    <li className="Item">
+                    {/* <li className="Item">
                         <Link id="LinkItem" to="/blog">Blog</Link>
-                    </li>
+                    </li> */}
                     <li className="Item">
-                        <Link id="LinkItem" to="/account">Your Account<i className="far fa-user-circle"></i></Link>
+                        Hello <span className="colorName">{props.auth.user && props.auth.user.firstname}</span>
                     </li>
+                    {/* <li className="Item">
+                        <Link id="LinkItem" to="/account">My Account<i className="far fa-user-circle"></i></Link>
+                    </li> */}
                     <li className="Item">
                         <Link id="LinkItem" to="/cart">Cart< i className="fas fa-shopping-basket"></i></Link>
                     </li>
@@ -34,22 +34,22 @@ const Navbar = props => {
     )
     const guest = () => (
         <ul style={{ listStyleType: 'none' }} className="Navbar">
-            <p className="NameWeb">LOGO HERE</p>
+            <p className="NameWeb">NAME HERE</p>
             <div className="NavItems">
                 <li className="Item">
                     <Link id="LinkItem" to="/">Home</Link>
                 </li>
                 <li className="Item">
-                        <Link id="LinkItem" to="/blog">Blog</Link>
-                    </li>
+                    <Link id="LinkItem" to="/blog">Blog</Link>
+                </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/login">Login<i className="fas fa-sign-in-alt"></i></Link>
+                    <Link id="LinkItem" to="/login">Login</Link>
                 </li>
                 <li className="Item">
                     <Link id="LinkItem" to="/register">Register<i className="far fa-user"></i></Link>
                 </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/contact">Contact us</Link>
+                    <Link id="LinkItem" to="/contact">Contact</Link>
                 </li>
             </div>
         </ul>

@@ -13,6 +13,7 @@ import Alerts from './components/Alerts'
 import Cart from './components/Cart'
 import Blog from './components/Blog'
 import Account from './components/Account'
+import Home from './components/Home'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,7 +22,7 @@ ReactDOM.render(
       <div className="container">
         <Alerts />
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/account" component={Account} />
