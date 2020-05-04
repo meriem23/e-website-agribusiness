@@ -1,15 +1,9 @@
 import React from 'react'
-import './App.css'
-import setAuthToken from './utils/setAuthToken'
 import { connect } from 'react-redux'
-import { loadUser } from './actions/AuthActions'
+import { loadUser } from '../actions/AuthActions'
 import { Carousel } from 'react-bootstrap'
 
-
-if (localStorage.token) {
-  setAuthToken(localStorage.token)
-}
-class App extends React.Component {
+class Home extends React.Component {
   componentDidMount() {
     this.props.loadUser()
   }
@@ -44,4 +38,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { loadUser })(App)
+export default connect(null, { loadUser })(Home)

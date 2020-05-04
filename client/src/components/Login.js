@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { login } from '../actions/AuthActions'
 import { setAlert, removeAlert } from '../actions/AlertActions'
+import { makeStyles } from '@material-ui/core/styles';
+
 
 class Login extends Component {
     constructor(props) {
@@ -53,7 +55,7 @@ class Login extends Component {
                     <input name="email" type="text" onChange={this.handleChange} placeholder="E-mail" />
                     <input name="password" type="password" onChange={this.handleChange} placeholder="Password" />
                 </div>
-                <Button onClick={this.loginNow} variant="success">Sing In</Button>
+                <Button onClick={this.loginNow} variant="success">Sing In</Button> 
             </div>
         )
     }

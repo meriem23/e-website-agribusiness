@@ -26,6 +26,10 @@ const UserSchema = new Schema({
         type: Number,
         required: true
     },
+    role: {
+        type: Number,
+        default: 0
+    },
     date: {
         type: Date,
         default: Date.now
