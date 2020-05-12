@@ -8,29 +8,31 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Register from './components/Register'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
-import Contact from './components/Contact'
-import Alerts from './components/Alerts'
 import Cart from './components/Cart'
-import Blog from './components/Blog'
-import Account from './components/Account'
 import Home from './components/Home'
+import ProductUpload from './components/ProductUpload'
+import MyStore from './components/MyStore'
+import Footer from './components/Footer'
+import SellerAccount from './components/SellerAccount'
+import Blog from './components/Blog'
+import bla from './components/bla'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
       <Navbar />
-      <div className="container">
-        <Alerts />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/account" component={Account} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/blog" component={Blog} />
-        </Switch>
-      </div>
-    </BrowserRouter>
-  </Provider>,
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/store" component={MyStore} />
+        <Route exact path="/seller_account" component={SellerAccount} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/new_product" component={ProductUpload} />
+        <Route exact path="/blog" component={Blog} />
+        <Route exact path="/bla" component={bla} />
+      </Switch>
+      <Footer />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('root'));

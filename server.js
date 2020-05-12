@@ -9,7 +9,8 @@ const app = express()
 app.use(express.json())
 // Define routes
 app.use('/api/user', require('./routes/users'))
-app.use('/api/auth',require('./routes/auth'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/product', require('./routes/product'))
 // Generate Server 
 app.listen(5000, (err) => {
     if (err) throw err

@@ -1,12 +1,32 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
+import TextField from '@material-ui/core/TextField'
+import { withStyles } from '@material-ui/core/styles'
+import MenuItem from '@material-ui/core/MenuItem'
+import PropTypes from 'prop-types'
 import { v4 as uuid } from 'uuid'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { register, clearError} from '../actions/AuthActions'
+import { register, clearError } from '../actions/AuthActions'
 import { setAlert, removeAlert } from '../actions/AlertActions'
 
-
+const styles = {
+    root: {
+        '& > *': {
+            margin: '10px',
+            width: '20ch',
+        },
+    },
+}
+const roles = [
+    {
+        value: 1,
+        label: 'Buyer',
+    },
+    {
+        value: 2,
+        label: 'Seller',
+    }
+];
 
 class Register extends Component {
     constructor(props) {
@@ -18,19 +38,21 @@ class Register extends Component {
             phone: '',
             email: '',
             password: '',
-            role: ''
         }
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
     registerNow = () => {
-        if (this.state.firstname === '' || this.state.lastname === '' || this.state.address === '' || this.state.phone === '' || this.state.email === '' || this.state.password === '') {
+        if (this.state.firstname === '' || this.state.lastname === ''
+            || this.state.email === '' || this.state.password === ''
+            || this.state.address === '' || this.state.phone === ''
+        ) {
             let id = uuid()
             this.props.setAlert('All fields are required', 'danger', id)
             setTimeout(() => {
                 this.props.removeAlert(id)
-            }, 5000);
+            }, 10000);
         } else {
             this.props.register({
                 firstname: this.state.firstname,
@@ -52,8 +74,8 @@ class Register extends Component {
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
-           this.props.history.push('/') 
-         }
+            this.props.history.push('/')
+        }
         if (nextProps.auth.error === 'This user already exists') {
             let id = uuid()
             this.props.setAlert(nextProps.auth.error, 'danger', id)
@@ -64,27 +86,51 @@ class Register extends Component {
         }
     }
     render() {
+        const { classes } = this.props;
         return (
-            <div className="RegisterInputs">
-                <h2>Create Account</h2>
-                <div className="Inputs">
-                    <input name="firstname" type="text" value={this.state.firstname} onChange={this.handleChange} placeholder="First Name" />
-                    <input name="lastname" type="text" value={this.state.lastname} onChange={this.handleChange} placeholder="Last Name" />
-                    <input name="address" type="text" value={this.state.address} onChange={this.handleChange} placeholder="Home Address" />
-                    <input name="phone" type="text" value={this.state.phone} onChange={this.handleChange} placeholder="Phone Number" />
-                    <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="E-mail" />
-                    <input name="password" type="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
-                    <label className="RoleType">You are a ... </label>
-                    <select name="role">
-                        <option>Select one</option>
-                        <option value="Buyer">Buyer</option>
-                        <option value="Seller" >Seller</option>
-                    </select>
+            <div className="MyContainer">
+                <div className="MyCard">
+                    <p className="LogoTitle">The Farm</p>
+                    <h2>Create Account</h2>
+                    <p className="Sentp">Don’t worry, we won’t sell your information.</p>
+                    <form className={classes.root} noValidate autoComplete="off">
+                        <TextField id="outlined-basic" label="First Name" variant="outlined" name="firstname"
+                            value={this.state.firstname} onChange={this.handleChange} />
+                        <TextField id="outlined-basic" label="Last Name" variant="outlined" name="lastname"
+                            value={this.state.lastname} onChange={this.handleChange} />
+                        <br />
+                        <TextField id="outlined-basic" label="Address" variant="outlined" name="address"
+                            value={this.state.address} onChange={this.handleChange} />
+                        <TextField id="outlined-basic" label="Phone Number" variant="outlined" name="phone"
+                            value={this.state.phone} onChange={this.handleChange} />
+                        <br />
+                        <TextField id="outlined-basic" label="E-mail" variant="outlined" name="email"
+                            value={this.state.email} onChange={this.handleChange} />
+                        <TextField id="outlined-basic" label="Password" type="password" variant="outlined" name="password"
+                            value={this.state.password} onChange={this.handleChange} />
+                    </form>
+                    <form noValidate autoComplete="off">
+                        <div>
+                            <TextField
+                                id="outlined-select-role"
+                                select
+                                label="Role Selection"
+                                variant="outlined"
+                                helperText="Please specify if your are a Buyer or a Seller">
+                                {roles.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>))}
+                            </TextField>
+                        </div>
+                    </form>
+                    <br />
+                    <div className="BtnSign">
+                        <button className="InBtn" onClick={this.registerNow}>Sign Up</button>
+                    </div>
+                    <hr />
+                    <Link id="LinkItem" to="/login">Already have an acount?</Link>
                 </div>
-                <div className="BtnSign">
-                    <Button variant="success" onClick={this.registerNow}>Sign Up</Button>
-                </div>
-                <Link id="LinkItem" to="/login">Already have an acount?</Link>
             </div>
         )
     }
@@ -94,4 +140,8 @@ const mapStateToProps = state => {
         auth: state.auth
     }
 }
-export default connect(mapStateToProps, { setAlert, removeAlert, register, clearError})(Register)
+Register.propTypes = {
+    classes: PropTypes.object.isRequired,
+}
+export default connect(mapStateToProps, { setAlert, removeAlert, register, clearError })
+    (withStyles(styles)(Register))
