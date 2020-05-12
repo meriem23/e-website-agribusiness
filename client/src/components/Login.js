@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import { login } from '../actions/AuthActions'
+import Alerts from './Alerts'
+import { login, clearError } from '../actions/AuthActions'
 import { setAlert, removeAlert } from '../actions/AlertActions'
-import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField'
+import { withStyles } from "@material-ui/core/styles"
+import InstagramIcon from '@material-ui/icons/Instagram'
+import FacebookIcon from '@material-ui/icons/Facebook'
+import PropTypes from 'prop-types'
 
+const styles = {
+    root: {
+        '& > *': {
+            width: '25ch',
+        },
+    },
+}
 
 class Login extends Component {
     constructor(props) {
@@ -48,14 +60,32 @@ class Login extends Component {
         }
     }
     render() {
+        const { classes } = this.props;
         return (
-            <div className="LoginInputs">
-                <h2>Sing In </h2>
-                <div className="Inputs">
-                    <input name="email" type="text" onChange={this.handleChange} placeholder="E-mail" />
-                    <input name="password" type="password" onChange={this.handleChange} placeholder="Password" />
+            <div className="MyContainer">
+                <div className="MyCard ">
+                    <p className="LogoTitle">The Farm</p>
+                    <h2>Sing In </h2>
+                    <p className="Sentp">Sing in to get access to your account</p>
+                    <form className={classes.root} noValidate autoComplete="off" >
+                        <TextField id="outlined-basic" label="E-mail" name="email"
+                            variant="outlined" onChange={this.handleChange} />
+                        <br />
+                        <br />
+                        <TextField id="outlined-basic" label="Password" name="password" type="password"
+                            variant="outlined" onChange={this.handleChange} />
+                    </form>
+                    <br />
+                    <button className="InBtn" onClick={this.loginNow}>Sing In</button>
+                    <br />
+                    <br />
+                    <Link id="LinkItem" to="/register">Don't have an acount? <br /> Create one now</Link>
+                    <br />
+                    <hr />
+                    <br />
+                    <button className="LogBtnInsta"><InstagramIcon /></button>
+                    <button className="LogBtnFB"><FacebookIcon /></button>
                 </div>
-                <Button onClick={this.loginNow} variant="success">Sing In</Button> 
             </div>
         )
     }
@@ -65,4 +95,8 @@ const mapStateToProps = state => {
         auth: state.auth
     }
 }
-export default connect(mapStateToProps, { setAlert, removeAlert, login })(Login)
+Login.propTypes = {
+    classes: PropTypes.object.isRequired,
+}
+export default connect(mapStateToProps, { setAlert, removeAlert, login, clearError })
+    (withStyles(styles)(Login))

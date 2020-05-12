@@ -1,58 +1,78 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logout } from '../actions/AuthActions'
+import Avatars from './Avatars'
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 
 const Navbar = props => {
-    const userConnected = () => (
-        <div>
-            <ul style={{ listStyleType: 'none' }} className="Navbar">
-                <p className="NameWeb">NAME HERE</p>
-                <div className="NavItems">
-                    <li className="Item">
-                        <Link id="LinkItem" to="/">Home</Link>
-                    </li>
-                    {/* <li className="Item">
-                        <Link id="LinkItem" to="/blog">Blog</Link>
-                    </li> */}
-                    <li className="Item">
-                        Hello <span className="colorName">{props.auth.user && props.auth.user.firstname}</span>
-                    </li>
-                    {/* <li className="Item">
-                        <Link id="LinkItem" to="/account">My Account<i className="far fa-user-circle"></i></Link>
-                    </li> */}
-                    <li className="Item">
-                        <Link id="LinkItem" to="/cart">Cart< i className="fas fa-shopping-basket"></i></Link>
-                    </li>
-                    <li className="Item">
-                        <Link id="LinkItem" to='#!' onClick={props.logout}>Logout<i className="fas fa-sign-out-alt"></i></Link>
-                    </li>
-                </div>
-            </ul>
 
-        </div>
-    )
     const guest = () => (
-        <ul style={{ listStyleType: 'none' }} className="Navbar">
-            <p className="NameWeb">NAME HERE</p>
+        <div>
+  <ul style={{ listStyleType: 'none' }} className="Navbar">
             <div className="NavItems">
                 <li className="Item">
-                    <Link id="LinkItem" to="/">Home</Link>
+                    <Link id="NavLinkItem" to="/">Home</Link>
                 </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/blog">Blog</Link>
+                    <Link id="NavLinkItem" to="/store">Store</Link>
                 </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/login">Login</Link>
+                    <Link id="NavLinkItem" to="/blog">Blog</Link>
+                </li>
+                <p className="LogoTitle">The Farm</p>
+                <li className="Item">
+                    <Link id="NavLinkItem" to="/login">Login</Link>
                 </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/register">Register<i className="far fa-user"></i></Link>
+                    <Link id="NavLinkItem" to="/register">Register</Link>
                 </li>
                 <li className="Item">
-                    <Link id="LinkItem" to="/contact">Contact</Link>
+                    <Link id="NavLinkItem" to="/new_product">Add</Link>
+                </li>
+                <li className="Item">
+                    <Link id="NavLinkItem" to="/cart"> <ShoppingCartOutlinedIcon /></Link>
                 </li>
             </div>
         </ul>
+        <hr />
+        </div>
+    )
+    const userConnected = () => (
+        <div>
+            <ul style={{ listStyleType: 'none' }} className="Navbar">
+                <div className="NavItems">
+                    <li className="Item">
+                        <Link id="NavLinkItem" to="/">Home</Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="NavLinkItem" to="/store">Store</Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="NavLinkItem" to="/blog">Blog</Link>
+                    </li>
+                    <p className="LogoTitle">The Farm</p>
+                    <li className="Item">
+                        <p id="HelloItem">Hello, <span id="NameItem">
+                            {props.auth.user && props.auth.user.firstname + ' ' + props.auth.user.lastname}
+                        </span></p>
+                    </li>
+                    <li>
+                        <Link id="NavLinkItem" to="/seller_account" >
+                            <Avatars
+                                id="profil"
+                                Name={props.auth.user &&
+                                    props.auth.user.firstname +
+                                    props.auth.user.lastname}
+                            />
+                        </Link>
+                    </li>
+                    <li className="Item">
+                        <Link id="NavLinkItem" to="/cart"> <ShoppingCartOutlinedIcon /></Link>
+                    </li>
+                </div>
+            </ul>
+            <hr />
+        </div>
     )
     return (
         <div>
@@ -66,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { logout })(Navbar)
+export default connect(mapStateToProps)(Navbar)
