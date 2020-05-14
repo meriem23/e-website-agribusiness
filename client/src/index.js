@@ -5,11 +5,13 @@ import App from './App'
 import store from './store'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute'
 import Register from './components/Register'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Cart from './components/Cart'
 import Home from './components/Home'
+import Alerts from './components/Alerts'
 import ProductUpload from './components/ProductUpload'
 import MyStore from './components/MyStore'
 import Footer from './components/Footer'
@@ -21,6 +23,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <Navbar />
+      <Alerts />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/store" component={MyStore} />

@@ -25,6 +25,9 @@ color:#969696;
   font-weight: 500;
   color:#80b435;  
 }
+.BadgeColor{
+  color: #80b435;
+}
 /* Login & Register */
 .MyContainer{
 background-color: #F5F5F5;
@@ -230,6 +233,10 @@ hr {
 width:50%;
 }
 /* Blog */
+.BlogImg{
+  max-width: 100%;
+  height: auto;
+}
 .MyBlogContainer{
 background-color: #F5F5F5;
 height: 800px;
@@ -260,6 +267,7 @@ font-family: 'Lato', sans-serif;
 width: 100%;
 height: 150px;
 padding: 50px;
+margin: 0;
 border-radius: 10px;
 }
 .ContainerBackTwo{
@@ -281,4 +289,14 @@ height: 710px;
 padding: 50px;
 border-radius: 10px;
 text-align: center;
+}
+/* Cart */
+.CartImg{
+max-width: 100%;
+height: auto;
+}
+/* Store */
+.StoreImg{
+max-width: 100%;
+height: auto;
 }

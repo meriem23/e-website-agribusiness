@@ -1,7 +1,8 @@
-import { ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, GET_PRODUCT, REMOVE_CURRENT_PRODUCT } from '../actions/types'
+import { ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, GET_PRODUCT, REMOVE_CURRENT_PRODUCT, SAVE_PRODUCT, UPDATE_PRODUCT, CLEAR_PRODUCT } from '../actions/types'
 
 const initState = {
-    product: [],
+    product: [{ name: 'orange', image: 'orange.photo', category: 'fruit', quantity: 150, unit: 'kg', price: 12, location: 'hms', description: 'nice orange'}],
+    saved: null,
     error: null
 }
 
@@ -10,7 +11,7 @@ const ProductReducer = (state = initState, action) => {
         case GET_PRODUCT:
             return {
                 ...state,
-                PRODUCT: action.payload
+                product: action.payload
             }
         case ADD_PRODUCT:
             return {
@@ -21,6 +22,21 @@ const ProductReducer = (state = initState, action) => {
             return {
                 ...state,
                 product: state.product.filter(el => el._id !== action.payload)
+            }
+        case SAVE_PRODUCT:
+            return {
+                ...state,
+                saved: action.payload
+            }
+        case UPDATE_PRODUCT:
+            return {
+                ...state,
+                product: state.product.map(el => el._id === action.payload._id ? action.payload : el)
+            }
+        case CLEAR_PRODUCT:
+            return {
+                ...state,
+                saved: null
             }
         case PRODUCT_ERROR:
             return {

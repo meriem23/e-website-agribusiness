@@ -1,4 +1,4 @@
-import { GET_PRODUCT, ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, REMOVE_CURRENT_PRODUCT } from './types'
+import { GET_PRODUCT, ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, REMOVE_CURRENT_PRODUCT, CLEAR_PRODUCT, UPDATE_PRODUCT, SAVE_PRODUCT } from './types'
 import axios from 'axios'
 
 //GET PRODUCT
@@ -53,4 +53,35 @@ export const deleteProduct = id => dispatch => {
             type: PRODUCT_ERROR,
             payload: err.response.msg
         }))
+}
+// SAVE PRODUCT
+export const saveProduct = product => dispatch => {
+    dispatch({
+        type: SAVE_PRODUCT,
+        payload: product
+    })
+}
+// UPDATE PRODUCT
+export const editProduct = updatedProduct => dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    axios.put(`/api/product/${updatedProduct._id}`, updatedProduct, config)
+        .then(res => dispatch({
+            type: UPDATE_PRODUCT,
+            payload: updatedProduct
+        }))
+        .catch(err => dispatch({
+            type: PRODUCT_ERROR,
+            payload: err.response.msg
+        }))
+
+}
+// CLEAR PRODUCT
+export const clearProduct = () => dispatch => {
+    dispatch({
+        type: CLEAR_PRODUCT
+    })
 }

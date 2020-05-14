@@ -16,10 +16,9 @@ class Footer extends Component {
                     <div className="row InContainer">
                         <div className="col-sm InCol">
                             <p className="FootDesc">
-                                <span className="FootTitle">The Farm</span><br /> Is an initiative which aims to bring all kind of farmers,
-                            breeders and artisans closer to their direct consumers,
-                            to offer them a sales area dedicated to quality products.
-                        </p>
+                                <span className="FootTitle">The Farm,</span><br /> Is an initiative which aims to bring all kind of farmers,
+                            breeders and artisans closer to their direct consumers.
+                           </p>
                             <div>
                                 <a className="LinkFB" href="https://www.facebook.com"><FacebookIcon /></a>
                                 <a className="LinkInsta" href="https://www.instagram.com"> <InstagramIcon /> </a>

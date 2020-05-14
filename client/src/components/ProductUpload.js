@@ -98,6 +98,7 @@ class ProductUpload extends Component {
             open: false
         });
     }
+
     handleSave(image) {
         //Saving files to state for further use and closing Modal.
         this.setState({
@@ -105,6 +106,7 @@ class ProductUpload extends Component {
             open: false
         });
     }
+
     handleOpen() {
         this.setState({
             open: true,
@@ -190,7 +192,7 @@ class ProductUpload extends Component {
                                 name="description"
                                 value={this.state.description}
                                 onChange={this.handleChange} />
-                            {/* <div>
+                            <div>
                                 <button className="InBtn" onClick={this.handleOpen.bind(this)}>
                                     Add Image
                                 </button>
@@ -202,7 +204,7 @@ class ProductUpload extends Component {
                                     maxFileSize={5000000}
                                     onClose={this.handleClose.bind(this)}
                                 />
-                            </div> */}
+                            </div>
                             <br />
                             <br />
                             <button className="InBtn"

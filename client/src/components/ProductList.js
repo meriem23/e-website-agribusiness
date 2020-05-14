@@ -4,9 +4,9 @@ import { getProduct } from '../actions/ProductActions'
 import ProductItem from './ProductItem'
 
 class ProductList extends React.Component {
-    componentDidMount() {
-        this.props.getProduct()
-    }
+    // componentDidMount() {
+    //     this.props.getProduct()
+    // }
     render() {
         return (
             <div>
