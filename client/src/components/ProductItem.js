@@ -10,23 +10,26 @@ import CardActions from '@material-ui/core/CardActions'
 import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
-import FavoriteIcon from '@material-ui/icons/Favorite'
+import Avatars from './Avatars'
+// import { Button } from 'react-bootstrap'
+// import Card from 'react-bootstrap/Card'
 
 
-const ProductItem = ({ prod, deleteProduct }) => {
+const ProductItem = ({ prod, deleteProduct, props }) => {
     return (
         <div>
             <Card >
                 <CardHeader
                     avatar={
                         <Avatar aria-label="recipe">
-                            R
-                       </Avatar>}
+                            {prod.name.slice(0,1)}
+                    </Avatar>
+                    }
                     title={prod.name}
                     subheader={prod.date} />
-                {/* <CardMedia
+                {<CardMedia
                     image={prod.image}
-                    title={prod.name} /> */}
+                    title={prod.name} />}
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         <p>{prod.category}</p>
@@ -37,16 +40,27 @@ const ProductItem = ({ prod, deleteProduct }) => {
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
                 </CardActions>
                 <div>
                     <button onClick={() => deleteProduct(prod._id)}>Delete Product</button>
                 </div>
             </Card>
+            {/* <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                    <Card.Title>{prod.name}</Card.Title>
+                    <Card.Text>
+                        {prod.description}
+                    </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card> */}
         </div>
     )
 }
-
-export default connect(null, { deleteProduct })(ProductItem)
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
+export default connect(mapStateToProps, { deleteProduct })(ProductItem)

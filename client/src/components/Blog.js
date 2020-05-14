@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 function Blog() {
     const classes = useStyles();
     return (
+        <div>
+        <img className="BlogImg" src="images/Blog.Img.jpg"/>
         <div className="MyBlogContainer">
             <div className="row">
                 <div className="col-4">
@@ -85,6 +87,7 @@ function Blog() {
                     </Card>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

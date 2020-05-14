@@ -1,28 +1,34 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { logout } from '../actions/AuthActions'
+import { logout, loadUser } from '../actions/AuthActions'
 
 
 
-const SellerAccount = props => {
-    return (
-        <div className="MySellerAccountContainer">
-            <div class="ContainerBackOne">
-                <p>Hello, <span id="NameItem">
-                    {props.auth.user && props.auth.user.firstname + ' ' + props.auth.user.lastname}
-                </span></p>
-                <p>Welcome to your Dashboard. Scroll down to see quick links and overviews of your Personal Informations, Products List and Communities </p>
-                <Link id="NavLinkItem" to="/new_product">Add new product</Link>
+class SellerAccount extends Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        this.props.loadUser()
+    }
+    render() {
+        return (
+            <div className="MySellerAccountContainer">
+                <div className="ContainerBackOne">
+                    <p>Welcome to your Dashboard. Scroll down to see quick links and overviews 
+                        of your Personal Informations, Products List and Communities </p>
+                    <Link id="NavLinkItem" to="/new_product">Add new product</Link>
+                </div>
+                <br />
+                <div className="ContainerBackTwo">
+
+                    <Link id="NavLinkItem" to="/login" onClick={this.props.logout}>logmeout</Link>
+                    <div>hello</div>
+                </div>
             </div>
-            <br />
-            <div class="ContainerBackTwo">
-
-                <Link id="NavLinkItem" to="/home" onClick={props.logout}>logmeout</Link>
-                <div class="">hello</div>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 const mapStateToProps = state => {
     return {
@@ -30,5 +36,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { logout })(SellerAccount)
+export default connect(mapStateToProps, { logout, loadUser })(SellerAccount)
 

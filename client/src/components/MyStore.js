@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import Carousel from 'react-bootstrap/Carousel'
+import ProductList from './ProductList'
 
 
 class MyStore extends Component {
     render() {
         return (
-            <div className="MyContainer">
-     
-        </div>
+            <div>
+                <img className="StoreImg" src="images/Store.Img.jpg"/>
+               <div className="MyContainer">
+                <ProductList />
+            </div> 
+            </div>
         )
     }
 }

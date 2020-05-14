@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import Alerts from './Alerts'
 import { login, clearError } from '../actions/AuthActions'
 import { setAlert, removeAlert } from '../actions/AlertActions'
 import TextField from '@material-ui/core/TextField'
@@ -29,6 +28,19 @@ class Login extends Component {
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
+        if (nextProps.auth.error === 'Please Register Before!' || nextProps.auth.error === "Wrong Password") {
+            let id = uuid()
+            this.props.setAlert(nextProps.auth.error, 'warning', id)
+            setTimeout(() => {
+                this.props.removeAlert(id)
+                this.props.clearError()
+            }, 5000);
+        }
     }
     loginNow = () => {
         if (this.state.email === '' || this.state.password === '') {
