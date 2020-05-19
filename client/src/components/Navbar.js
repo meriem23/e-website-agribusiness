@@ -63,11 +63,6 @@ const Navbar = props => {
                         <Link id="NavLinkItem" to="/blog">Blog</Link>
                     </li>
                     <p className="LogoTitle">The Farm</p>
-                    {/* <li className="Item">
-                        <p id="HelloItem">Hello, <span id="NameItem">
-                            {props.auth.user && props.auth.user.firstname + ' ' + props.auth.user.lastname}
-                        </span></p>
-                    </li> */}
                     <li>
                         <Link id="NavLinkItem" to="/seller_account" >
                             <Avatars

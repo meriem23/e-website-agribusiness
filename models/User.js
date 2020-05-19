@@ -28,7 +28,6 @@ const UserSchema = new Schema({
     },
     role: {
         type: Number,
-        default: 0
     },
     date: {
         type: Date,

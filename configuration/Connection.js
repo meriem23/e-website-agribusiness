@@ -4,6 +4,6 @@ const mongoURL = "mongodb+srv://Admin:Admin@e-commerce-igpf5.mongodb.net/test?re
 
 const ConnectDB = () => mongoose.connect(mongoURL,{ useNewUrlParser: true, useUnifiedTopology: true },(err)=>{
     if (err) { throw err}
-    else console.log('The Database is now connected')
+    else console.log('The Database is now Connected')
 })
 module.exports = ConnectDB

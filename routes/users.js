@@ -12,6 +12,7 @@ router.post('/', [
     check('firstname', 'Please enter your first name').not().isEmpty(),
     check('lastname', 'Please enter your last name').not().isEmpty(),
     check('address', 'Please enter your address').not().isEmpty(),
+    check('role', 'Please enter your role').not().isEmpty(),
     check('phone', 'Please enter your phone number, must be 8 numbers').not().isEmpty().isLength({ min: 8, max: 8 }),
     check('email', 'Please put a valid email').isEmail(),
     check('password', 'Your password must be at least 6 characters').not().isEmpty().isLength({ min: 6 })
@@ -21,7 +22,7 @@ router.post('/', [
     if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() })
     }
-    const { firstname, lastname, address, phone, email, password } = req.body
+    const { firstname, lastname, address, phone, email, password, role } = req.body
     // chercher dans la DB l'email saisie pour voir si le user existe déjà ou pas
     User.findOne({ email })
         .then(user => {
@@ -35,7 +36,8 @@ router.post('/', [
                     address,
                     phone,
                     email,
-                    password
+                    password,
+                    role
                 })
                 //haching the password
                 bcrypt.genSalt(10, (err, salt) => {

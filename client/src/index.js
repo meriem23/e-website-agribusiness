@@ -17,7 +17,7 @@ import MyStore from './components/MyStore'
 import Footer from './components/Footer'
 import SellerAccount from './components/SellerAccount'
 import Blog from './components/Blog'
-import bla from './components/bla'
+import ProductDescription from './components/ProductDescription'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -33,7 +33,7 @@ ReactDOM.render(
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/new_product" component={ProductUpload} />
         <Route exact path="/blog" component={Blog} />
-        <Route exact path="/bla" component={bla} />
+        <Route exact path="/product/:id" component={ProductDescription} />
       </Switch>
       <Footer />
     </Provider>

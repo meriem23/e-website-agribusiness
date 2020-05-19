@@ -1,4 +1,4 @@
-import { GET_PRODUCT, ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, REMOVE_CURRENT_PRODUCT, CLEAR_PRODUCT, UPDATE_PRODUCT, SAVE_PRODUCT } from './types'
+import { GET_PRODUCT, ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, REMOVE_CURRENT_PRODUCT, CLEAR_PRODUCT, UPDATE_PRODUCT, SAVE_PRODUCT, GET_KEYWORD } from './types'
 import axios from 'axios'
 
 //GET PRODUCT
@@ -15,7 +15,7 @@ export const getProduct = () => dispatch => {
         }))
         .catch(err => dispatch({
             type: PRODUCT_ERROR,
-            payload: err.response.msg
+            payload: err.response.data.msg
         })
         )
 }
@@ -85,3 +85,10 @@ export const clearProduct = () => dispatch => {
         type: CLEAR_PRODUCT
     })
 }
+// Get keyword for search
+export const getKeyword = keyword => {
+    return {
+        type: GET_KEYWORD,
+        payload: keyword
+    };
+};

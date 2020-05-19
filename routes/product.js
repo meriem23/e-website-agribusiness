@@ -8,8 +8,11 @@ const Product = require('../models/Product')
 //Private Routes
 //Get Product
 router.get('/', auth, (req, res) => {
-    Product.find({ user: req.user.id })
-        .then(products => res.json(products))
+    Product.find().sort({date: -1})
+        //to get all the user info
+        .populate('user')
+        .then(products => { (products) ? res.json(products) : res.status(404).json({ msg: 'There is no products' }) })
+        // .then(product => res.json(product))
         .catch(err => console.log(err.message))
 })
 

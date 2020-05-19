@@ -1,66 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { deleteProduct } from '../actions/ProductActions'
-import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import Avatar from '@material-ui/core/Avatar'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import Avatars from './Avatars'
-// import { Button } from 'react-bootstrap'
-// import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
 
-
-const ProductItem = ({ prod, deleteProduct, props }) => {
+const ProductItem = ({ prod }) => {
     return (
-        <div>
-            <Card >
-                <CardHeader
-                    avatar={
-                        <Avatar aria-label="recipe">
-                            {prod.name.slice(0,1)}
-                    </Avatar>
-                    }
-                    title={prod.name}
-                    subheader={prod.date} />
-                {<CardMedia
-                    image={prod.image}
-                    title={prod.name} />}
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        <p>{prod.category}</p>
-                        <p>{prod.quantity}</p>
-                        <p>{prod.unit}</p>
-                        <p>{prod.price}</p>
-                        <p>{prod.description}</p>
-                    </Typography>
-                </CardContent>
-                <CardActions disableSpacing>
-                </CardActions>
-                <div>
-                    <button onClick={() => deleteProduct(prod._id)}>Delete Product</button>
+        <div className="ProductCard">
+            <img className="ProductImg" src={prod.image} alt="product img" />
+            <div className="ProductGlobalInfo">
+                <p className="ProductName">{prod.name}</p>
+                <div className="ProductPandU">
+                    <p className="ProductPrice"> {prod.price + ' DT / '} </p>
+                    <p className="ProductUnit"> {prod.unit.slice(0,3)} </p>
                 </div>
-            </Card>
-            {/* <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>{prod.name}</Card.Title>
-                    <Card.Text>
-                        {prod.description}
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card> */}
+                <div className="ProductHover">
+                    <Link id="CartLinkItem" to={`/product/${prod._id}`}> <i class="fas fa-expand-arrows-alt fa-lg CircleIcon"></i> </Link>
+                    <Link id="CartLinkItem" to="/cart"> <i class="fas fa-shopping-basket fa-lg CircleIcon"></i> </Link>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
 const mapStateToProps = state => {
     return {
         auth: state.auth
     }
 }
-export default connect(mapStateToProps, { deleteProduct })(ProductItem)
+export default connect(mapStateToProps)(ProductItem)

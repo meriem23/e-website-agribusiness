@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const ProductSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     },
     name: {
         type: String,
@@ -15,7 +15,7 @@ const ProductSchema = new Schema({
         required: true
     },
     category: {
-        type: Number,
+        type: String,
         required: true
     },
     quantity: {
@@ -23,7 +23,7 @@ const ProductSchema = new Schema({
         required: true
     },
     unit: {
-        type: Number,
+        type: String,
         required: true
     },
     price: {

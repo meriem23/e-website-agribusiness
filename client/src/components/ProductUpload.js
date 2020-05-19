@@ -4,64 +4,8 @@ import { Link } from 'react-router-dom'
 import { addProduct } from '../actions/ProductActions'
 import { TextField, FormControl, InputLabel, Select, MenuItem, InputAdornment } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { DropzoneDialog } from 'material-ui-dropzone'
 import PropTypes from 'prop-types'
 
-const Categories = [
-    { key: 1, value: 'Vegetables' },
-    { key: 2, value: 'Fruits' },
-    { key: 3, value: 'Livestock' },
-    { key: 4, value: 'Poultry & Eggs' },
-    { key: 5, value: 'Fish' },
-    { key: 6, value: 'Dairies' },
-    { key: 7, value: 'Cereals & Grains' },
-    { key: 8, value: 'Nuts & Seeds' },
-    { key: 9, value: 'Olives & Oil Products' },
-    { key: 10, value: 'Beverages' },
-    { key: 11, value: 'Bee Products' },
-    { key: 12, value: 'Spices' }
-]
-const Units = [
-    { key: 1, value: '1 - Arbitrary Unit' },
-    { key: 2, value: 'Grams - 0.001Kg' },
-    { key: 3, value: 'Kilograms - 1Kg' },
-    { key: 5, value: 'Tons - 1000Kg' },
-    { key: 5, value: 'Millilitres - 0.001L' },
-    { key: 6, value: 'Litres - 1L' },
-    { key: 7, value: 'Decalitres - 10L' },
-    { key: 8, value: 'Themna - 20L' },
-    { key: 9, value: 'Weeba - 40L' },
-    { key: 10, value: 'Qfiz - 640L' },
-    { key: 11, value: 'Hara - 4Eggs' },
-    { key: 12, value: 'Half Dozen - 6Eggs' },
-    { key: 13, value: 'Dozen - 12Eggs' }
-]
-const Locations = [
-    { key: 1, value: 'Ariana' },
-    { key: 2, value: 'Béja' },
-    { key: 3, value: 'Ben Arous' },
-    { key: 5, value: 'Bizert' },
-    { key: 5, value: 'Gabès' },
-    { key: 6, value: 'Gafsa' },
-    { key: 7, value: 'Jandouba' },
-    { key: 8, value: 'Kairouan' },
-    { key: 9, value: 'Kasserine' },
-    { key: 10, value: 'Kébili' },
-    { key: 11, value: 'Kef' },
-    { key: 12, value: 'Mahdia' },
-    { key: 13, value: 'Manouba' },
-    { key: 14, value: 'Médenine' },
-    { key: 15, value: 'Monastir' },
-    { key: 16, value: 'Nabeul' },
-    { key: 17, value: 'Sfax' },
-    { key: 18, value: 'Sidi Bouzid' },
-    { key: 19, value: 'Siliana' },
-    { key: 20, value: 'Sousse' },
-    { key: 21, value: 'Tataouine' },
-    { key: 22, value: 'Tozeur' },
-    { key: 23, value: 'Tunis' },
-    { key: 24, value: 'Zaghouan' }
-]
 const styles = {
     root: {
         '& > *': {
@@ -86,31 +30,11 @@ class ProductUpload extends Component {
             price: "",
             location: "",
             description: "",
-            image: [],
-            open: false
+            image: ""
         }
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
-    }
-    handleClose() {
-        this.setState({
-            open: false
-        });
-    }
-
-    handleSave(image) {
-        //Saving files to state for further use and closing Modal.
-        this.setState({
-            image: image,
-            open: false
-        });
-    }
-
-    handleOpen() {
-        this.setState({
-            open: true,
-        });
     }
     render() {
         const { classes } = this.props;
@@ -128,36 +52,71 @@ class ProductUpload extends Component {
                                 name="name"
                                 value={this.state.name}
                                 onChange={this.handleChange} />
-                            <FormControl variant="outlined">
-                                <InputLabel
-                                    id="demo-simple-select-outlined-label">Location</InputLabel>
+                            <FormControl variant="outlined" >
+                                <InputLabel id="demo-simple-select-outlined-label">Location</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    name="location"
                                     label="Location"
+                                    name="location"
                                     value={this.state.location}
-                                    onChange={this.handleChange}>
-                                    {Locations.map(el => (
-                                        <MenuItem key={el.key} value={el.key}>{el.value}</MenuItem>
-                                    ))}
+                                    onChange={this.handleChange} >
+                                    <MenuItem value="">
+                                        <em>Your Location</em>
+                                    </MenuItem>
+                                    <MenuItem value={"Ariana"}>Ariana</MenuItem>
+                                    <MenuItem value={"Béja"}>Béja</MenuItem>
+                                    <MenuItem value={"Ben Arous"}>Ben Arous</MenuItem>
+                                    <MenuItem value={"Bizert"}>Bizert</MenuItem>
+                                    <MenuItem value={"Gabès"}>Gabès</MenuItem>
+                                    <MenuItem value={"Gafsa"}>Gafsa</MenuItem>
+                                    <MenuItem value={"Jandouba"}>Jandouba</MenuItem>
+                                    <MenuItem value={"Kairouan"}>Kairouan</MenuItem>
+                                    <MenuItem value={"Kasserine"}>Kasserine</MenuItem>
+                                    <MenuItem value={"Kébili"}>Kébili</MenuItem>
+                                    <MenuItem value={"Kef"}>Kef</MenuItem>
+                                    <MenuItem value={"Mahdia"}>Mahdia</MenuItem>
+                                    <MenuItem value={"Manouba"}>Manouba</MenuItem>
+                                    <MenuItem value={"Médnine"}>Médenine</MenuItem>
+                                    <MenuItem value={"Monastir"}> Monastir</MenuItem>
+                                    <MenuItem value={"Nabeul"}>Nabeul</MenuItem>
+                                    <MenuItem value={"Sfax"}>Sfax</MenuItem>
+                                    <MenuItem value={"Sidi Bouzid"}>Sidi Bouzid</MenuItem>
+                                    <MenuItem value={"Siliana"}>Siliana</MenuItem>
+                                    <MenuItem value={"Sousse"}>Sousse</MenuItem>
+                                    <MenuItem value={"Tataouine"}>Tataouine</MenuItem>
+                                    <MenuItem value={"Tozeur"}>Tozeur</MenuItem>
+                                    <MenuItem value={"Tunis"}>Tunis</MenuItem>
+                                    <MenuItem value={"Zaghouan"}>Zaghouan</MenuItem>
                                 </Select>
                             </FormControl>
                             <br />
-                            <FormControl variant="outlined">
-                                <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
+                            <FormControl variant="outlined" >
+                                <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-helper-label"
-                                    id="demo-simple-select-helper"
-                                    name="category"
+                                    labelId="demo-simple-select-outlined-label"
+                                    id="demo-simple-select-outlined"
                                     label="Category"
+                                    name="category"
                                     value={this.state.category}
-                                    onChange={this.handleChange}>
-                                    {Categories.map(el => (
-                                        <MenuItem key={el.key} value={el.key}>{el.value}</MenuItem>
-                                    ))}
+                                    onChange={this.handleChange} >
+                                    <MenuItem value="">
+                                        <em>Product Category</em>
+                                    </MenuItem>
+                                    <MenuItem value={"Vegetables"}>Vegetables</MenuItem>
+                                    <MenuItem value={"Fruits"}>Fruits</MenuItem>
+                                    <MenuItem value={"Livestock"}>Livestock</MenuItem>
+                                    <MenuItem value={"Dairies"}>Dairies</MenuItem>
+                                    <MenuItem value={"Poultry & Eggs"}>Poultry & Eggs</MenuItem>
+                                    <MenuItem value={"Fish"}>Fish</MenuItem>
+                                    <MenuItem value={"Spices"}>Spices</MenuItem>
+                                    <MenuItem value={"Cereals & Beans"}>Cereals & Beans</MenuItem>
+                                    <MenuItem value={"Nuts & Seeds"}>Nuts & Seeds</MenuItem>
+                                    <MenuItem value={"Olives & Oils"}>Olives & Oil</MenuItem>
+                                    <MenuItem value={"Beverages"}>Beverages</MenuItem>
+                                    <MenuItem value={"Bee Products"}>Bee Products</MenuItem>
                                 </Select>
-                            </FormControl>
+                            </FormControl> 
                             <TextField id="outlined-basic" label="Quantity"
                                 variant="outlined"
                                 name="quantity"
@@ -165,17 +124,30 @@ class ProductUpload extends Component {
                                 onChange={this.handleChange} />
                             <br />
                             <FormControl variant="outlined" >
-                                <InputLabel id="demo-simple-select-helper-label">Sales Unit</InputLabel>
+                                <InputLabel id="demo-simple-select-outlined-label">Sales Unit</InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-helper-label"
-                                    id="demo-simple-select-helper"
-                                    name="unit"
+                                    labelId="demo-simple-select-outlined-label"
+                                    id="demo-simple-select-outlined"
                                     label="Sales Unit"
+                                    name="unit"
                                     value={this.state.unit}
-                                    onChange={this.handleChange}>
-                                    {Units.map(el => (
-                                        <MenuItem key={el.key} value={el.key}>{el.value}</MenuItem>
-                                    ))}
+                                    onChange={this.handleChange} >
+                                    <MenuItem value="">
+                                        <em>Product Unit</em>
+                                    </MenuItem>
+                                    <MenuItem value={"1 - Arbitrary Uni"}>1 - Arbitrary Unit</MenuItem>
+                                    <MenuItem value={"Grams - 0.001Kg"}>Grams - 0.001Kg</MenuItem>
+                                    <MenuItem value={"Kilograms - 1Kg"}>Kilograms - 1Kg</MenuItem>
+                                    <MenuItem value={"Tons - 1000Kg"}>Tons - 1000Kg</MenuItem>
+                                    <MenuItem value={"Millilitres - 0.001L"}>Millilitres - 0.001L</MenuItem>
+                                    <MenuItem value={"Litres - 1L"}>Litres - 1L</MenuItem>
+                                    <MenuItem value={"Decalitres - 10L"}>Decalitres - 10L</MenuItem>
+                                    <MenuItem value={"Themna - 20L"}>Themna - 20L</MenuItem>
+                                    <MenuItem value={"Weeba - 40L"}>Weeba - 40L</MenuItem>
+                                    <MenuItem value={"Qfiz - 640L"}>Qfiz - 640L</MenuItem>
+                                    <MenuItem value={"Hara - 4Eggs"}>Hara - 4Eggs</MenuItem>
+                                    <MenuItem value={"Half Dozen - 6Eggs"}>Half Dozen - 6Eggs</MenuItem>
+                                    <MenuItem value={"Dozen - 12Eggs"}>Dozen - 12Eggs</MenuItem>
                                 </Select>
                             </FormControl>
                             <TextField id="outlined-basic" label="Price per Unit"
@@ -192,23 +164,22 @@ class ProductUpload extends Component {
                                 name="description"
                                 value={this.state.description}
                                 onChange={this.handleChange} />
-                            <div>
-                                <button className="InBtn" onClick={this.handleOpen.bind(this)}>
-                                    Add Image
-                                </button>
-                                <DropzoneDialog
-                                    open={this.state.open}
-                                    onSave={this.handleSave.bind(this)}
-                                    acceptedFiles={['image/jpg', 'image/png']}
-                                    showPreviews={true}
-                                    maxFileSize={5000000}
-                                    onClose={this.handleClose.bind(this)}
-                                />
-                            </div>
+                            <TextField id="outlined-basic" label="Product Picture"
+                                variant="outlined"
+                                name="image"
+                                value={this.state.image}
+                                onChange={this.handleChange} />
                             <br />
                             <br />
                             <button className="InBtn"
-                                onClick={() => this.props.addProduct(this.state)}>Add Product
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    this.props.addProduct(this.state)
+                                    this.setState({
+                                        name: "", category: "", quantity: "", unit: "",
+                                        price: "", location: "", description: "", image: ""
+                                    })
+                                }}>Add Product
                            </button>
                         </form>
                         <br />
