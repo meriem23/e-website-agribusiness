@@ -290,13 +290,119 @@ padding: 50px;
 border-radius: 10px;
 text-align: center;
 }
-/* Cart */
-.CartImg{
-max-width: 100%;
-height: auto;
+/* Product Card */
+.ProductCard{
+width: 16rem;
+border-radius: 6px;
+background-color: white;
+margin: 5px;
+height: auto; 
+display: flex;
+flex-direction: column;
+align-items: center;
+transition: 0.3s;
+position: relative;
+}
+.ProductImg{
+width: 200px;
+height: 200px;
+overflow: hidden;
+/*Scale down will take the necessary specified space that is 200px x 200px without stretching the image*/
+object-fit:scale-down;
+margin-top: 3px;
+} 
+.ProductName{
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+font-size: 30px;
+color: #2b2b2b;
+}
+.ProductPrice{
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+font-size: 16px;
+color: #80b435; 
+}
+.ProductUnit{
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+font-size: 16px;
+color: #80b435; 
+}
+.ProductPandU{
+display: flex;
+flex-direction: row;
+/* justify-content: space-evenly; */
+}
+.ProductHover{
+transition: .5s ease;
+opacity: 0;
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+}
+#CartLinkItem{
+text-decoration: none;
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+color:#80b435;
+}
+.CircleIcon{
+background: white;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+text-align: center;
+line-height: 20px;
+vertical-align: middle;
+padding: 15px;
+}
+.ProductCard:hover .ProductImg {
+opacity: 0.3;
+}
+.ProductCard:hover .ProductHover {
+opacity: 1;
+}
+/*Search Product */
+.SearchBar{
+display: flex;
+align-items: baseline;
+margin: 5px 0px 35px 0px;
+}
+.ProductSearch{
+width: 700px;
+border: 1px solid #F5F5F5;
+padding: 5px;
+height: 50px;
+margin-right: 5px;
+border-radius: 10px;
+color: #2b2b2b;
+}
+.SearchIcon{
+color: #80b435;
+}
+/*Product List */
+.ProductList{
+display: flex;
+flex-wrap: wrap;
 }
 /* Store */
 .StoreImg{
+max-width: 100%;
+height: auto;
+}
+.MyStoreContainer{
+background-color: #F5F5F5;
+height: 800px;
+width: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* Cart */
+.CartImg{
 max-width: 100%;
 height: auto;
 }

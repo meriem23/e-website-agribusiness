@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
+import InputLabel from '@material-ui/core/InputLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import Select from '@material-ui/core/Select'
 import PropTypes from 'prop-types'
 import { v4 as uuid } from 'uuid'
 import { connect } from 'react-redux'
@@ -17,17 +21,6 @@ const styles = {
         },
     },
 }
-const roles = [
-    {
-        value: 1,
-        label: 'Buyer',
-    },
-    {
-        value: 2,
-        label: 'Seller',
-    }
-];
-
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +31,7 @@ class Register extends Component {
             phone: '',
             email: '',
             password: '',
+            role:''
         }
     }
     handleChange = e => {
@@ -46,7 +40,7 @@ class Register extends Component {
     registerNow = () => {
         if (this.state.firstname === '' || this.state.lastname === ''
             || this.state.email === '' || this.state.password === ''
-            || this.state.address === '' || this.state.phone === ''
+            || this.state.address === '' || this.state.phone === '' || this.state.role === ''
         ) {
             let id = uuid()
             this.props.setAlert('All fields are required', 'danger', id)
@@ -60,7 +54,8 @@ class Register extends Component {
                 address: this.state.address,
                 phone: this.state.phone,
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                role: this.state.role
             })
             this.setState({
                 firstname: '',
@@ -68,7 +63,8 @@ class Register extends Component {
                 address: '',
                 phone: '',
                 email: '',
-                password: ''
+                password: '',
+                role:''
             })
         }
     }
@@ -109,21 +105,24 @@ class Register extends Component {
                         <TextField id="outlined-basic" label="Password" type="password" variant="outlined" name="password"
                             value={this.state.password} onChange={this.handleChange} />
                     </form>
-                    <form noValidate autoComplete="off">
-                        <div>
-                            <TextField
-                                id="outlined-select-role"
-                                select
-                                label="Role Selection"
-                                variant="outlined"
-                                helperText="Please specify if your are a Buyer or a Seller">
-                                {roles.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>))}
-                            </TextField>
-                        </div>
-                    </form>
+                    <FormControl variant="outlined" >
+                        <InputLabel id="demo-simple-select-outlined-label">Role Selection</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            label="Role Selection"
+                            name="role"
+                            value={this.state.role} 
+                            onChange={this.handleChange} 
+                        >
+                            <MenuItem value="">
+                                <em>Role</em>
+                            </MenuItem>
+                            <MenuItem value={1}>Buyer</MenuItem>
+                            <MenuItem value={2}>Seller</MenuItem>
+                        </Select>
+                        <FormHelperText>Select if you are a Buyer or Seller</FormHelperText>
+                    </FormControl>
                     <br />
                     <div className="BtnSign">
                         <button className="InBtn" onClick={this.registerNow}>Sign Up</button>

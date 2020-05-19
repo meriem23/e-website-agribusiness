@@ -23,7 +23,7 @@ function Blog() {
     const classes = useStyles();
     return (
         <div>
-        <img className="BlogImg" src="images/Blog.Img.jpg"/>
+        <img className="BlogImg" src="images/Blog.Img.jpg" alt="blog banner"/>
         <div className="MyBlogContainer">
             <div className="row">
                 <div className="col-4">

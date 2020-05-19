@@ -29,19 +29,19 @@ class Login extends Component {
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.auth.isAuthenticated) {
-            this.props.history.push('/')
-        }
-        if (nextProps.auth.error === 'Please Register Before!' || nextProps.auth.error === "Wrong Password") {
-            let id = uuid()
-            this.props.setAlert(nextProps.auth.error, 'warning', id)
-            setTimeout(() => {
-                this.props.removeAlert(id)
-                this.props.clearError()
-            }, 5000);
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.auth.isAuthenticated) {
+    //         this.props.history.push('/')
+    //     }
+    //     if (nextProps.auth.error === 'Please Register Before!' || nextProps.auth.error === "Wrong Password") {
+    //         let id = uuid()
+    //         this.props.setAlert(nextProps.auth.error, 'warning', id)
+    //         setTimeout(() => {
+    //             this.props.removeAlert(id)
+    //             this.props.clearError()
+    //         }, 5000);
+    //     }
+    // }
     loginNow = () => {
         if (this.state.email === '' || this.state.password === '') {
             let id = uuid()

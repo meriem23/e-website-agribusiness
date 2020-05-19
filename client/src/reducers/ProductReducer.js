@@ -1,9 +1,10 @@
-import { ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, GET_PRODUCT, REMOVE_CURRENT_PRODUCT, SAVE_PRODUCT, UPDATE_PRODUCT, CLEAR_PRODUCT } from '../actions/types'
+import { ADD_PRODUCT, DELETE_PRODUCT, PRODUCT_ERROR, GET_PRODUCT, REMOVE_CURRENT_PRODUCT, SAVE_PRODUCT, UPDATE_PRODUCT, CLEAR_PRODUCT,GET_KEYWORD } from '../actions/types'
 
 const initState = {
-    product: [{ name: 'orange', image: 'orange.photo', category: 'fruit', quantity: 150, unit: 'kg', price: 12, location: 'hms', description: 'nice orange'}],
+    product: null,
     saved: null,
-    error: null
+    error: null,
+    keyword: ""
 }
 
 const ProductReducer = (state = initState, action) => {
@@ -48,6 +49,10 @@ const ProductReducer = (state = initState, action) => {
                 ...state,
                 product: []
             }
+        case GET_KEYWORD:
+            return {
+                 ...state, 
+                 keyword: action.payload }
         default:
             return state
     }

@@ -4,14 +4,16 @@ import { getProduct } from '../actions/ProductActions'
 import ProductItem from './ProductItem'
 
 class ProductList extends React.Component {
-    // componentDidMount() {
-    //     this.props.getProduct()
-    // }
+    componentDidMount() {
+        this.props.getProduct()
+    }
     render() {
         return (
-            <div>
-                {this.props.myProd.product.map(prod => <ProductItem key={prod._id} prod={prod}/>)}
-            </div>
+                <div className="ProductList">
+                    {this.props.myProd.product &&
+                        this.props.myProd.product.filter(prod => prod.name.toLowerCase().includes(this.props.myProd.keyword.trim().toLowerCase())).map(prod => <ProductItem key={prod._id} prod={prod} />)}
+
+                </div>
         )
     }
 }

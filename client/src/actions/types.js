@@ -17,6 +17,7 @@ export const SAVE_PRODUCT = 'SAVE_PRODUCT'
 export const CLEAR_PRODUCT = 'CLEAR_PRODUCT'
 export const PRODUCT_ERROR = 'PRODUCT_ERROR'
 export const REMOVE_CURRENT_PRODUCT = 'REMOVE_CURRENT_PRODUCT'
+export const GET_KEYWORD = 'GET_KEYWORD'
 
 // Alert Actions
 export const SET_ALERT = 'SET_ALERT'
