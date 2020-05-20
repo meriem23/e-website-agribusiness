@@ -1,17 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { loadUser } from '../actions/AuthActions'
 import Carousel from 'react-bootstrap/Carousel'
 
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-}
-componentDidMount() {
-    this.props.loadUser()
-}
   render() {
     return (
       <div >
@@ -51,4 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { loadUser })(Home)
+export default connect(mapStateToProps)(Home)
