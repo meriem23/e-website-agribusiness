@@ -21,12 +21,12 @@ font-weight: 400;
 color:#969696; 
 }
 #NameItem{
-  font-family: 'pacifico', cursive;
-  font-weight: 500;
-  color:#80b435;  
+font-family: 'pacifico', cursive;
+font-weight: 500;
+color:#80b435;  
 }
 .BadgeColor{
-  color: #80b435;
+color: #80b435;
 }
 /* Login & Register */
 .MyContainer{
@@ -295,7 +295,7 @@ text-align: center;
 width: 16rem;
 border-radius: 6px;
 background-color: white;
-margin: 5px;
+margin: 6px;
 height: auto; 
 display: flex;
 flex-direction: column;
@@ -395,11 +395,74 @@ height: auto;
 }
 .MyStoreContainer{
 background-color: #F5F5F5;
-height: 800px;
+height: 100%;
 width: auto;
 display: flex;
 flex-direction: column;
 align-items: center;
+}
+/*Product Description */
+.MyProductContainer{
+background-color: #F5F5F5;
+height: 500px;
+width: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.ProductDescriptionCard{
+width: 42rem;
+border-radius: 6px;
+background-color: white;
+margin: 5px;
+height:auto; 
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+.ProductDescriptionImg{
+width: 200px;
+height: 200px;
+overflow: hidden;
+/*Scale down will take the necessary specified space that is 200px x 200px without stretching the image*/
+object-fit:scale-down;
+margin: 15px;
+} 
+.ProductDescription{
+display: flex;
+flex-direction: column;
+}
+.ProductDescriptionName{
+font-family: 'pacifico', cursive;
+font-weight: 400;
+font-size: 40px;
+color:#80b435;
+margin-left: 100px;
+}
+.ProductDescriptionInfo{
+display: flex;
+flex-direction: row;
+margin-left: 35px;
+}
+.ProductDescriptionDetail{
+display: flex;
+flex-direction: column;
+margin-left: 35px;
+}
+.ProductDetail{
+font-family: 'pacifico', cursive;
+font-weight: 400;
+font-size: 20px;
+color:#80b435;
+margin-left: 100px;
+}
+#DescriptionText{
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+color:#969696;
+}
+#DescriptionIcon{
+color:#80b435;
 }
 /* Cart */
 .CartImg{

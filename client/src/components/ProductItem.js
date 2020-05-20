@@ -13,8 +13,8 @@ const ProductItem = ({ prod }) => {
                     <p className="ProductUnit"> {prod.unit.slice(0,3)} </p>
                 </div>
                 <div className="ProductHover">
-                    <Link id="CartLinkItem" to={`/product/${prod._id}`}> <i class="fas fa-expand-arrows-alt fa-lg CircleIcon"></i> </Link>
-                    <Link id="CartLinkItem" to="/cart"> <i class="fas fa-shopping-basket fa-lg CircleIcon"></i> </Link>
+                    <Link id="CartLinkItem" to={`/product/${prod._id}`}> <i className="fas fa-expand-arrows-alt fa-lg CircleIcon"></i> </Link>
+                    <Link id="CartLinkItem" to="/cart"> <i className="fas fa-shopping-basket fa-lg CircleIcon"></i> </Link>
                 </div>
             </div>
         </div>

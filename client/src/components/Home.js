@@ -6,6 +6,12 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+}
+componentDidMount() {
+    this.props.loadUser()
+}
   render() {
     return (
       <div >
@@ -39,5 +45,10 @@ class Home extends React.Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+      auth: state.auth
+  }
+}
 
-export default Home
+export default connect(mapStateToProps, { loadUser })(Home)
