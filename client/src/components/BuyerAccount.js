@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout, loadUser } from '../actions/AuthActions'
 
-class SellerAccount extends Component {
+class BuyerAccount extends Component {
     constructor(props) {
         super(props);
     }
@@ -34,5 +34,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { logout, loadUser })(SellerAccount)
-
+export default connect(mapStateToProps, { logout, loadUser })(BuyerAccount)

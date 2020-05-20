@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { loadUser } from '../actions/AuthActions'
 import Carousel from 'react-bootstrap/Carousel'
 
 
@@ -39,5 +38,10 @@ class Home extends React.Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+      auth: state.auth
+  }
+}
 
-export default Home
+export default connect(mapStateToProps)(Home)
