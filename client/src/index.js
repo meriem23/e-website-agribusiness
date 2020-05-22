@@ -17,8 +17,6 @@ import MyStore from './components/MyStore'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
 import ProductDescription from './components/ProductDescription'
-// import SellerAccount from './components/SellerAccount'
-// import BuyerAccount from './components/BuyerAccount'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -28,8 +26,6 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/store" component={MyStore} />
-        {/* <Route exact path="/seller_account" component={SellerAccount} />
-        <Route exact path="/buyer_account" component={BuyerAccount} /> */}
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/cart" component={Cart} />

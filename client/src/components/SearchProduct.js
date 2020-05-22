@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { getKeyword } from '../actions/ProductActions'
-import SearchIcon from '@material-ui/icons/Search'
 
 class SearchProduct extends Component {
     constructor(props) {
