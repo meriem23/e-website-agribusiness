@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {logout} from '../actions/AuthActions'
-import Avatars from './Avatars'
 import Badge from '@material-ui/core/Badge'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined'
@@ -40,9 +39,7 @@ const Navbar = props => {
                     </li>
                     <li className="Item">
                         <Link id="NavLinkItem" to="/cart">
-                            <StyledBadge badgeContent={0} color="secondary" showZero>
                                 <ShoppingCartOutlinedIcon />
-                            </StyledBadge>
                         </Link>
                     </li>
                 </div>
@@ -73,9 +70,7 @@ const Navbar = props => {
                         </li>
                         <li className="Item">
                             <Link id="NavLinkItem" to="/cart">
-                                <StyledBadge badgeContent={0} color="secondary" showZero>
                                     <ShoppingCartOutlinedIcon />
-                                </StyledBadge>
                             </Link>
                         </li>  
                     </div>

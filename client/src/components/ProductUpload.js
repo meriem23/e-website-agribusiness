@@ -184,7 +184,7 @@ class ProductUpload extends Component {
                         </form>
                         <br />
                         <hr />
-                        <Link id="LinkItem" to="/seller_account">Return to your acount</Link>
+                        <Link id="LinkItem" to="/store">Return to the Store</Link>
                     </div>
                 </div>
             </div>
