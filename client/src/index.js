@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute'
 import Register from './components/Register'
-import Navbar from './components/Navbar'
+import Navigationbar from './components/Navigationbar'
 import Login from './components/Login'
 import Cart from './components/Cart'
 import Home from './components/Home'
@@ -21,7 +21,7 @@ import ProductDescription from './components/ProductDescription'
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Navbar />
+      <Navigationbar />
       <Alerts />
       <Switch>
         <Route exact path="/" component={Home} />

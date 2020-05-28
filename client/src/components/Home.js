@@ -23,7 +23,7 @@ class Home extends React.Component {
             />
           </Carousel.Item>
         </Carousel>
-        <div className="MyHomeContainer">
+        {/* <div className="MyHomeContainer">
           <div className="HomeText">
           <Link id="NavLinkItem" to="/register"><i className="fas fa-sign-in-alt RegisterColor"></i>  </Link>
             <p><span>Register</span> and get access to our content</p>
@@ -37,7 +37,7 @@ class Home extends React.Component {
             <p>Get tips and advices from our <span>Blog</span> section</p>
           </div>
           {/* information below */}
-          <div className="HomeInformation">
+          {/* <div className="HomeInformation">
             <div className="CertifiedContainer">
               <i className="fas fa-certificate fa-3x"></i>
               <p className="InfoText">Certified Quality</p>
@@ -51,7 +51,7 @@ class Home extends React.Component {
               <p className="InfoText">Secure Payment</p>
             </div>
           </div>
-        </div>
+        </div>  */}
       </div>
     )
   }

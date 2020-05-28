@@ -84,6 +84,7 @@ font-weight: 400;
 font-size: 20px;
 }
 /*Navbar */
+
 .NavItems{
 display: flex;
 flex-direction: row;
@@ -217,30 +218,21 @@ background-color: white;
 border: 1px solid #3B5998;
 } 
 /* Footer */
-.FooterContainer{
-background-color: white;
-height: 200px;
-width: auto;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.InContainer{
-padding: 20px;
-text-align: center; 
+.footer{
+overflow-x: hidden; 
 }
 .CopyRi{
 font-family: 'Lato', sans-serif;
 color: #969696;
 text-align: center;
 }
-.InCol{
-align-items: left;
-}
 .FootDesc{
 font-family: 'Lato', sans-serif;
 color: #969696;
-margin-top: 15px;
+text-align: center;
+}
+.LinksFooter{
+text-align: center;
 }
 .LinkFB{
 color: #969696;
@@ -277,7 +269,6 @@ text-decoration: none;
 .FootTitle{
 font-family: 'pacifico', cursive;
 color: #80b435;
-margin-top: 15px;
 font-size: large;
 }
 .FootLinks{

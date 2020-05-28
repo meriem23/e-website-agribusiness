@@ -11,56 +11,60 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 class Footer extends Component {
     render() {
         return (
-            <div>
-                <div className="FooterContainer container">
-                    <div className="row InContainer">
-                        <div className="col-sm InCol">
-                            <p className="FootDesc">
-                                <span className="FootTitle">The Farm,</span><br /> Is an initiative which aims to bring all kind of farmers,
+            <footer>
+                <div className="row">
+                    <div className="col-md-4 mt-md-0 mt-4">
+                        <p className="FootDesc">
+                            <span className="FootTitle">The Farm,</span><br /> Is an initiative which aims to bring all kind of farmers<br />
                             breeders and artisans closer to their direct consumers.
-                           </p>
-                            <div>
+                        </p>
+                        <ul className="list-unstyled">
+                            <li className="LinksFooter">
                                 <a className="LinkFB" href="https://www.facebook.com"><FacebookIcon /></a>
                                 <a className="LinkInsta" href="https://www.instagram.com"> <InstagramIcon /> </a>
                                 <a className="LinkTwi" href="https://www.twitter.com"> <TwitterIcon /> </a>
                                 <a className="LinkYou" href="https://www.youtube.com"> <YouTubeIcon />  </a>
-                            </div>
-                        </div>
-                        <div className="col-sm InCol">
-                            <p className="FootTitle">Quick Links</p>
-                            <div>
-                                <p className="TextContact">
-                                    <Link id="FootLink" to="/register">Register Now</Link>
-                                </p>
-                                <p className="TextContact">
-                                    <Link id="FootLink" to="/store">Store</Link>
-                                </p>
-                                <p className="TextContact">
-                                    <Link id="FootLink" to="/blog">Blog</Link>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-sm InCol">
-                            <p className="FootTitle">Contact Us</p>
-                            <div>
-                                <p className="TextContact">
-                                    <PhoneIcon className="LinkContact" />+216 73 214 057
-                                </p>
-                                <p className="TextContact">
-                                    <AlternateEmailIcon className="LinkContact" />TheFarm@farmcorporation.com
-                                </p>
-                                <p className="TextContact">
-                                    <LocationOnOutlinedIcon className="LinkContact" />92 Rue Andalousie, Sousse
-                                </p>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr className="clearfix w-50 d-md-none" />
+                    <div className="col-md-4 mb-md-0 mb-4 LinksFooter">
+                        <p className="FootTitle">Quick Links</p>
+                        <ul className="list-unstyled">
+                            <li className="TextContact">
+                                <Link id="FootLink" to="/register">Register Now</Link>
+                            </li>
+                            <li className="TextContact">
+                                <Link id="FootLink" to="/store">Store</Link>
+                            </li>
+                            <li className="TextContact">
+                                <Link id="FootLink" to="/blog">Blog</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr className="clearfix w-50 d-md-none" />
+                    <div className="col-md-4 mb-md-0 mb-4 LinksFooter">
+                        <p className="FootTitle">Contact Us</p>
+                        <ul className="list-unstyled">
+                            <li className="TextContact">
+                                <PhoneIcon className="LinkContact" />+216 73 214 057
+                            </li>
+                            <li className="TextContact">
+                                <AlternateEmailIcon className="LinkContact" />TheFarm@farmcorporation.com
+                            </li>
+                            <li className="TextContact">
+                                <LocationOnOutlinedIcon className="LinkContact" />92 Rue Andalousie, Sousse
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <hr />
-                <p className="CopyRi">  © {new Date().getFullYear()} Copyright<span className="FootTitle">The Farm</span>
+                <div className="footer-copyright text-center py-3">
+                    <hr />
+                    <p className="CopyRi">  © {new Date().getFullYear()} Copyright<span className="FootTitle">The Farm</span>
                  - All Rights Reserved.
                  </p>
-            </div>
+                </div>
+            </footer>
         )
     }
 }
