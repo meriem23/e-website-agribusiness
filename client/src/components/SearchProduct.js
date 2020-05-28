@@ -26,7 +26,7 @@ class SearchProduct extends Component {
                         onChange={this.handleChange}
                     />
                 </Form>
-                <i class="fas fa-search fa-2x SearchIcon"></i>
+                <i className="fas fa-search fa-2x SearchIcon"></i>
             </div>
         );
     }
