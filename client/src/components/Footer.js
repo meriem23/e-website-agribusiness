@@ -11,9 +11,9 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 class Footer extends Component {
     render() {
         return (
-            <footer>
+            <footer className="container">
                 <div className="row">
-                    <div className="col-md-4 mt-md-0 mt-4">
+                    <div className="col-md-4 mt-md-0 mt-4 d-flex justify-content-md-center social">
                         <p className="FootDesc">
                             <span className="FootTitle">The Farm,</span><br /> Is an initiative which aims to bring all kind of farmers<br />
                             breeders and artisans closer to their direct consumers.
@@ -30,7 +30,7 @@ class Footer extends Component {
                     <hr className="clearfix w-50 d-md-none" />
                     <div className="col-md-4 mb-md-0 mb-4 LinksFooter">
                         <p className="FootTitle">Quick Links</p>
-                        <ul className="list-unstyled">
+                        <ul className="list-unstyled linksElements">
                             <li className="TextContact">
                                 <Link id="FootLink" to="/register">Register Now</Link>
                             </li>
@@ -45,7 +45,7 @@ class Footer extends Component {
                     <hr className="clearfix w-50 d-md-none" />
                     <div className="col-md-4 mb-md-0 mb-4 LinksFooter">
                         <p className="FootTitle">Contact Us</p>
-                        <ul className="list-unstyled">
+                        <ul className="list-unstyled footlist ">
                             <li className="TextContact">
                                 <PhoneIcon className="LinkContact" />+216 73 214 057
                             </li>

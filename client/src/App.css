@@ -1,3 +1,42 @@
+/*NavigationBar*/
+#NavLinkItem{
+text-decoration: none;
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+color:#969696;
+}
+#NavLinkItem:hover{
+cursor: pointer;
+color:#80b435;
+}
+.ItemsNavLink  li {
+margin-right: 70px;
+}
+li {
+display: inline;
+/* margin-right: 150px; */
+}
+/* .Navbar{
+overflow-x: hidden!important; 
+} */
+#HelloItem{
+font-family: 'Lato', sans-serif;
+color: #969696;
+}
+#NameItem{
+color: #80b435;
+}
+.LogoTitleThefarm{
+text-decoration: none!important;
+font-family: 'pacifico', cursive;
+color: #80b435;
+font-size: 40px;
+margin-right: 150px;
+}
+.LogoTitleThefarm:hover{
+text-decoration: none!important;
+color: #80b435!important;
+}
 /*Home */
 .MyHomeContainer{
 background-color: #F5F5F5;
@@ -82,34 +121,6 @@ color:#ffa726;
 font-family: 'Lato', sans-serif;
 font-weight: 400;
 font-size: 20px;
-}
-/*Navbar */
-
-.NavItems{
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: baseline;
-}
-#NavLinkItem{
-text-decoration: none;
-font-family: 'Lato', sans-serif;
-font-weight: 400;
-color:#969696;
-}
-#NavLinkItem:hover{
-cursor: pointer;
-color:#80b435;
-}
-#HelloItem{
-font-family: 'Lato', sans-serif;
-font-weight: 400;
-color:#969696; 
-}
-#NameItem{
-font-family: 'pacifico', cursive;
-font-weight: 500;
-color:#80b435;  
 }
 /* Login & Register */
 .MyContainer{
@@ -218,9 +229,9 @@ background-color: white;
 border: 1px solid #3B5998;
 } 
 /* Footer */
-.footer{
+/* .footer{
 overflow-x: hidden; 
-}
+} */
 .CopyRi{
 font-family: 'Lato', sans-serif;
 color: #969696;
@@ -271,10 +282,6 @@ font-family: 'pacifico', cursive;
 color: #80b435;
 font-size: large;
 }
-.FootLinks{
-display: flex;
-flex-direction: column;
-}
 #FootLink{
 text-decoration: none;
 font-family: 'Lato', sans-serif;
@@ -285,23 +292,34 @@ font-family: 'Lato', sans-serif;
 font-weight: 700;
 color:#80b435;
 }
-.FootInfoLinks{
+.linksElements{
 display: flex;
-align-items: baseline;
+flex-direction: column;
 list-style: none;
 } 
-.LinkContact{
+/* .LinkContact{
 color: #969696;
 display: flex;
 align-items: center;
 justify-content: center;
-}
+} */
 .LinkContact:hover{
 color: #80b435;
 }
 .TextContact{
 font-family: 'Lato', sans-serif;
 color:#969696;  
+}
+.footlist{
+display: flex;
+flex-direction: column;
+}
+.social{
+flex-direction: column;
+align-items: center;
+}
+footer{
+margin-top:15px;
 }
 hr {
 width:50%;
@@ -440,27 +458,69 @@ opacity: 0.3;
 opacity: 1;
 }
 /*Search Product */
-.SearchBar{
+.SearchInput {
+outline: none;
+}
+.SearchInput{
+-webkit-appearance: textfield;
+-webkit-box-sizing: content-box;
+font-family: 'Lato', sans-serif;
+font-size: 100%;
+margin: 15px 0px;
+}
+.SearchInput::-webkit-search-decoration,
+.SearchInput::-webkit-search-cancel-button {
+display: none; 
+}
+.SearchInput[type=text] {
+background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+border: solid 1px #ccc;
+padding: 9px 10px 9px 32px;
+width: 50px;
+-webkit-border-radius: 10em;
+-moz-border-radius: 10em;
+border-radius: 10em;
+-webkit-transition: all .5s;
+-moz-transition: all .5s;
+transition: all .5s;
+}
+.SearchInput[type=text]:focus {
+width: 200px;
+background-color: #fff;
+border-color: #80b435;
+-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+.SearchInput:-moz-placeholder {
+color: #999;
+}
+.SearchInput::-webkit-input-placeholder {
+color: #999;
+}
+/* .SearchBar{
 display: flex;
 align-items: baseline;
 margin: 5px 0px 35px 0px;
 }
 .ProductSearch{
-width: 700px;
+width: 300px;
 border: 1px solid #F5F5F5;
 padding: 5px;
 height: 50px;
 margin-right: 5px;
 border-radius: 10px;
 color: #2b2b2b;
-}
-.SearchIcon{
+} */
+/* .SearchIcon{
 color: #80b435;
-}
+} */
+
 /*Product List */
 .ProductList{
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
 }
 /* Store */
 .StoreImg{
