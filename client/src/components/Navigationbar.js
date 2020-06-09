@@ -8,9 +8,9 @@ import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined'
 
 const Navigationbar = props => {
     const guest = () => (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-white">
-                <Link className="LogoTitle" to="/">The Farm</Link>
+        <div className="Navbar">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white ItemsNavLink">
+                <Link className="LogoTitleThefarm" to="/">The Farm</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -39,14 +39,13 @@ const Navigationbar = props => {
                     </ul>
                 </div>
             </nav>
-            <hr />
         </div >
     )
     const userConnected = () => (
         <div className="Navbar">
             {props.auth.user && props.auth.user.role === 1 ?
-                <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                    <Link className="LogoTitle" to="/">The Farm</Link>
+                <nav class="navbar navbar-expand-lg navbar-light bg-white ItemsNavLink">
+                <Link className="LogoTitleThefarm" to="/">The Farm</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -73,8 +72,8 @@ const Navigationbar = props => {
                         </ul>
                     </div>
                 </nav> : 
-                <nav className="navbar navbar-expand-lg navbar-light bg-white">
-                    <Link className="LogoTitle" to="/">The Farm</Link>
+                <nav className="navbar navbar-expand-lg navbar-light bg-white ItemsNavLink">
+                    <Link className="LogoTitleThefarm" to="/">The Farm</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -102,7 +101,6 @@ const Navigationbar = props => {
                     </div>
                 </nav>
             }
-            <hr />
         </div>
     )
     return (
