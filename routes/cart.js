@@ -5,22 +5,22 @@ const User = require('../models/User')
 const Cart = require('../models/Cart')
 
 //Get cart public
-router.get('/',(req,res)=>{
+router.get('/', (req, res) => {
     Cart.find()
-    .then(cart => res.json(cart))
-    .catch(err => console.log(err.message))
+        .then(cart => res.json(cart))
+        .catch(err => console.log(err.message))
 })
 
 // Add cart private
-router.post('/',auth,(req,res)=>{
-    const {cart} = req.body
+router.post('/', auth, (req, res) => {
+    const { cart } = req.body
     const newCart = new Cart({
         cart,
         user: req.user.id
     })
     newCart.save()
-    .then(order => res.json(order))
-    .catch(err => console.log(err.message))
+        .then(order => res.json(order))
+        .catch(err => console.log(err.message))
 })
 
-module.exports= router
+module.exports = router
