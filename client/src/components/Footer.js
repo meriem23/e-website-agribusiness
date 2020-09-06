@@ -63,6 +63,8 @@ class Footer extends Component {
                     <p className="CopyRi">  © {new Date().getFullYear()} Copyright<span className="FootTitle">The Farm</span>
                  - All Rights Reserved.
                  </p>
+                    <p className="CopyRi"> Built by <span className="FootTitle">Meriem Esra M'sallem</span>
+                    </p>
                 </div>
             </footer>
         )
